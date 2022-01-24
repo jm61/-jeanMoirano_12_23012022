@@ -28,7 +28,7 @@ font-size: ${({theme}) => theme.fontSize.sm};
 font-weight: ${({theme}) => theme.fontWeight.bold};
 padding: .5rem;
 margin: .5rem;
-border-radius: 50% 0;
+border-radius: 5% 50% 50% 5%;
 background-color: ${({theme}) => theme.colors.lightBackground};
 text-decoration: none;
   &:hover {
