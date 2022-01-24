@@ -52,7 +52,7 @@ export const Dashboard = () => {
     <>
       <Layout
         title={'Dashboard'}
-        isSideNavigation
+        isSideActive
         description={'Bienvenue sur votre Dashboard'}>
         <Contents>
           <Heading firstname={userId} />

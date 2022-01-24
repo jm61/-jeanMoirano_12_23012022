@@ -42,9 +42,9 @@ export const TopBar = () => {
         <Image className="logo" src={logo} alt="logo"></Image>
       </NavLink>
       <NavLink to="/">Accueil</NavLink>
-      <NavLink to="/profile">Profil</NavLink>
-      <NavLink to="/settings">Infos</NavLink>
-      <NavLink to="/community">Contact</NavLink>
+      <NavLink to="#">Profil</NavLink>
+      <NavLink to="#">Infos</NavLink>
+      <NavLink to="#">Contact</NavLink>
     </NavGroup>
   );
 };

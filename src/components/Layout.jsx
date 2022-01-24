@@ -1,4 +1,5 @@
 import {TopBar} from './Navigation/TopBar'
+import {SideBar} from './Navigation/SideBar'
 import styled from 'styled-components'
 
 /**
@@ -7,26 +8,28 @@ import styled from 'styled-components'
 const SIDE_BAR_WIDTH = '7.5rem'
 const Container = styled.main`
   display: ${({isSideActive}) => (isSideActive ? 'grid' : 'block')};
-  grid-template-columns: ${({isSideNavigation}) =>
-    isSideNavigation ? `${SIDE_BAR_WIDTH} 1fr` : 'unset'};
+  grid-template-columns: ${({isSideActive}) =>
+    isSideActive ? `${SIDE_BAR_WIDTH} 1fr` : 'unset'};
 `
 
 /**
  * Rendering of a global layout architecture, present on each page
  * @param {string} title
  * @param {description} description
- * @param {boolean} isSideNavigation
+ * @param {boolean} isSideActive
  * @param {object} children
  * @returns {JSX}
  */
-export const Layout = ({children, description}) => {
+export const Layout = ({children, isSideActive}) => {
   return (
-    <Container>
-      <TopBar />
-      {children}
-    </Container>
-    
-    
+    <>
+    <TopBar />
+      {isSideActive ? (<Container isSideActive>
+        <SideBar />
+          {children}
+          </Container>) :
+          ( <Container>{children}</Container> )}
+    </>
   )
 }
 
