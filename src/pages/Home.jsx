@@ -26,13 +26,13 @@ const Links = styled(Link)`
 color: ${({theme}) => theme.colors.secondary};
 font-size: ${({theme}) => theme.fontSize.sm};
 font-weight: ${({theme}) => theme.fontWeight.bold};
-padding: 0.913rem;
-margin: 1.913rem;
-border-radius: 5px;
+padding: .5rem;
+margin: .5rem;
+border-radius: 50% 0;
 background-color: ${({theme}) => theme.colors.lightBackground};
 text-decoration: none;
   &:hover {
-    background-color: ${({theme}) => theme.colors.secondary};
+    background-color: ${({theme}) => theme.colors.primary};
     color: ${({theme}) => theme.colors.white}`;
 
 const UsersList = styled.h2`
@@ -41,6 +41,7 @@ margin: auto;
 `
 const CardWrapper = styled.div`
   display: flex;
+  flex-direction: column;
 `
 
 /**
@@ -60,8 +61,8 @@ export const Home = () => {
           <Title>Vous allez transpirer avec SportSee !</Title>
           <UsersList>Liste des utilisateurs</UsersList>
           <CardWrapper>
-            <Links to="/user/12">votre tableau de bord, Karl</Links>
-            <Links to="/user/18">votre tableau de bord, Cecilia</Links>
+            <Links to="/user/12">Karl</Links>
+            <Links to="/user/18">Cecilia</Links>
           </CardWrapper>
         </Contents>
       </Layout>
