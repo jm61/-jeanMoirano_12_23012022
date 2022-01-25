@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {Layout} from '../components/Layout'
+import {useUserData} from '../hooks/useUserData'
 import {useParams} from 'react-router-dom'
-import {Error404} from '../pages/Error404';
 
 /**
  * CSS for the component using styled.components
@@ -41,12 +41,16 @@ const Heading = ({firstname}) => {
   )
 }
 
-
+/**
+ * Renders the Dashboard of a user with all their stats
+ * @returns {JSX}
+ */
 export const Dashboard = () => {
   const {userId} = useParams();
-  const {loading, error} = userId
+  const {loading, user} =
+    useUserData(userId);
 
-  if (error) return <Error404 />;
+  //if (error) return <Error />;
   if (loading) return <p>Loading...</p>;
   return (
     <>
@@ -55,12 +59,11 @@ export const Dashboard = () => {
         isSideActive
         description={'Bienvenue sur votre Dashboard'}>
         <Contents>
-          <Heading firstname={userId} />
-
+          <Heading 
+            firstname={user.userInfos.firstName} />
+        {JSON.stringify(user.userInfos)}
         </Contents>
       </Layout>
     </>
   )
 }
-
-
