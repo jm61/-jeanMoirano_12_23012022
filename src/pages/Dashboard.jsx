@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import {Layout} from '../components/Layout'
 import {useUserData} from '../hooks/useUserData'
+import {Error404} from './Error404'
 import {useParams} from 'react-router-dom'
+import {KeyData} from '../components/Analytics/KeyData'
 
 /**
  * CSS for the component using styled.components
@@ -21,6 +23,13 @@ const Contents = styled.div`
   min-height: 90vh;
   padding: 2.5rem;
   padding-top: 1rem;
+`
+const Statistics = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
 `
 
 /**
@@ -42,16 +51,29 @@ const Heading = ({firstname}) => {
 }
 
 /**
+ * Renders the Statistics of a user
+ * @param {object} user
+ * @returns {JSX}
+ */
+ const UserStats = ({keyData}) => {
+  return (
+    <Statistics>
+      <KeyData keyData={keyData} />
+    </Statistics>
+  );
+};
+
+/**
  * Renders the Dashboard of a user with all their stats
  * @returns {JSX}
  */
 export const Dashboard = () => {
-  const {userId} = useParams();
+  const {userId} = useParams()
   const {loading, user} =
-    useUserData(userId);
+    useUserData(userId)
 
-  //if (error) return <Error />;
-  if (loading) return <p>Loading...</p>;
+  if (user === undefined) return <Error404 />
+  if (loading) return <p>Loading...</p>
   return (
     <>
       <Layout
@@ -61,7 +83,11 @@ export const Dashboard = () => {
         <Contents>
           <Heading 
             firstname={user.userInfos.firstName} />
-        {JSON.stringify(user.userInfos)}
+        {JSON.stringify(user.todayScore)}
+
+          <UserStats
+            keyData={user.keyData} 
+          />
         </Contents>
       </Layout>
     </>
