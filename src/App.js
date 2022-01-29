@@ -13,7 +13,6 @@ function App() {
     <Routes>
       <Route path="*" element={<Error404 />} />
       <Route path="/" index element={<Home />} />
-      <Route path="/test" index element={<Test />} />
       <Route path="/user/:userId" element={<Dashboard />} />
     </Routes>
   );

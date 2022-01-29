@@ -15,7 +15,7 @@ export const useUserData = userId => {
     async function getUserData(userId) {
         try {
             const userInfos = await FetchApi(`user/${userId}`)
-            console.log({userInfos})
+            //console.log({userInfos})
             setUser(userInfos.data)
         } catch (error) {
             setError(true);

@@ -4,6 +4,7 @@ import {useUserData} from '../hooks/useUserData'
 import {Error404} from './Error404'
 import {useParams} from 'react-router-dom'
 import {KeyData} from '../components/Analytics/KeyData'
+import {DailyScore} from '../components/Analytics/DailyScore'
 
 /**
  * CSS for the component using styled.components
@@ -55,9 +56,10 @@ const Heading = ({firstname}) => {
  * @param {object} user
  * @returns {JSX}
  */
- const UserStats = ({keyData}) => {
+ const UserStats = ({keyData, score}) => {
   return (
     <Statistics>
+      <DailyScore score={score} />
       <KeyData keyData={keyData} />
     </Statistics>
   );
@@ -69,8 +71,7 @@ const Heading = ({firstname}) => {
  */
 export const Dashboard = () => {
   const {userId} = useParams()
-  const {loading, user} =
-    useUserData(userId)
+  const {loading, user} = useUserData(userId)
 
   if (user === undefined) return <Error404 />
   if (loading) return <p>Loading...</p>
@@ -79,14 +80,13 @@ export const Dashboard = () => {
       <Layout
         title={'Dashboard'}
         isSideActive
-        description={'Bienvenue sur votre Dashboard'}>
+        description = {'Bienvenue sur votre Dashboard'}>
         <Contents>
           <Heading 
-            firstname={user.userInfos.firstName} />
-        {JSON.stringify(user.todayScore)}
-
+            firstname = {user.userInfos.firstName} />
           <UserStats
-            keyData={user.keyData} 
+            keyData = {user.keyData}
+            score={user.todayScore} 
           />
         </Contents>
       </Layout>

@@ -18,7 +18,6 @@ const ElementCard = styled.div`
   background-color: ${({theme}) => theme.colors.white};
   border-radius: 5px;
   align-items: center;
-  //box-shadow: 0rem 0.125rem 0.25rem 0rem #00000005;
   width: 100%;
 `;
 const Image = styled.img`
@@ -55,7 +54,7 @@ export const KeyData = ({keyData}) => {
       {categories.map((category, index) => {
         return (
           <ElementCard key={category}>
-            <Image src={icon[index]} alt="" />
+            <Image src={icon[index]} alt="icon" />
             <ElementText>
               <ElementValue>
                 {Object.values(keyData)[index]}
