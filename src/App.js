@@ -2,7 +2,6 @@ import {Routes, Route} from 'react-router-dom'
 import {Home} from './pages/Home'
 import {Error404} from './pages/Error404'
 import {Dashboard} from './pages/Dashboard'
-import {Test} from './pages/Test'
 
 /**
  * Manages routes & renders pages

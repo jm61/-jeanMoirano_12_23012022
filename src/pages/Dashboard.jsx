@@ -5,6 +5,7 @@ import {Error404} from './Error404'
 import {useParams} from 'react-router-dom'
 import {KeyData} from '../components/Analytics/KeyData'
 import {DailyScore} from '../components/Analytics/DailyScore'
+import {DailyActivity} from '../components/Analytics/DailyActivity'
 
 /**
  * CSS for the component using styled.components
@@ -25,7 +26,7 @@ const Contents = styled.div`
   padding: 2.5rem;
   padding-top: 1rem;
 `
-const Statistics = styled.div`
+const Analytics = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -56,12 +57,13 @@ const Heading = ({firstname}) => {
  * @param {object} user
  * @returns {JSX}
  */
- const UserStats = ({keyData, score}) => {
+ const UserStats = ({keyData, score, activity}) => {
   return (
-    <Statistics>
+    <Analytics>
+      <DailyActivity activityData={activity} />
       <DailyScore score={score} />
       <KeyData keyData={keyData} />
-    </Statistics>
+    </Analytics>
   );
 };
 
@@ -71,7 +73,7 @@ const Heading = ({firstname}) => {
  */
 export const Dashboard = () => {
   const {userId} = useParams()
-  const {loading, user} = useUserData(userId)
+  const {loading, user, activity} = useUserData(userId)
 
   if (user === undefined) return <Error404 />
   if (loading) return <p>Loading...</p>
@@ -85,8 +87,9 @@ export const Dashboard = () => {
           <Heading 
             firstname = {user.userInfos.firstName} />
           <UserStats
+            activity = {activity}
             keyData = {user.keyData}
-            score={user.todayScore} 
+            score = {user.todayScore} 
           />
         </Contents>
       </Layout>

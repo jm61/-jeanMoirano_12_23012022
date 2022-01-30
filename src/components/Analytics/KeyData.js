@@ -11,14 +11,18 @@ const ElementsWrapper = styled.div`
   grid-area: 1 / 4 / 5 / 5;
   display: grid;
   grid-row-gap: 5rem;
+  border: 2px solid green;
+  margin-left: 1rem;
   }
 `;
 const ElementCard = styled.div`
   display: flex;
-  background-color: ${({theme}) => theme.colors.white};
+  background-color: ${({theme}) => theme.colors.lightBackground};
+  padding: 1.5rem;
   border-radius: 5px;
   align-items: center;
-  width: 100%;
+  width: 75%;
+  padding-left: 1.8rem;
 `;
 const Image = styled.img`
   height: 4.125rem;

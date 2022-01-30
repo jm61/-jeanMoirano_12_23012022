@@ -8,15 +8,17 @@ import {FetchApi} from '../utils/fetchApi'
  * @returns {boolean} loading
  */
 export const useUserData = userId => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
     const [error, setError] = useState(false);
+    const [activity, setActivity] = useState(null)
 
     async function getUserData(userId) {
         try {
             const userInfos = await FetchApi(`user/${userId}`)
-            //console.log({userInfos})
+            const userActivity = await FetchApi(`user/${userId}/activity`);
             setUser(userInfos.data)
+            setActivity(userActivity.data.sessions);
         } catch (error) {
             setError(true);
             console.log(error)
@@ -28,5 +30,5 @@ export const useUserData = userId => {
 useEffect(() => {
     getUserData(userId)
   }, [userId])
-  return {loading, user};
+  return {loading, user, activity};
 }
