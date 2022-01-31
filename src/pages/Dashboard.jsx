@@ -6,10 +6,11 @@ import {useParams} from 'react-router-dom'
 import {KeyData} from '../components/Analytics/KeyData'
 import {DailyScore} from '../components/Analytics/DailyScore'
 import {DailyActivity} from '../components/Analytics/DailyActivity'
+import {SessionAverage} from '../components/Analytics/SessionAverage'
 
 /**
- * CSS for the component using styled.components
- */
+ * styled-components CSS embedded
+ */ 
 const Header = styled.div`
   padding-bottom: 1.875;
 `
@@ -32,10 +33,21 @@ const Analytics = styled.div`
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 1.5rem;
   grid-row-gap: 1.5rem;
+  border: 2px dotted purple;
+`
+const AnalyticsGraphics = styled.div`
+  grid-area: 1 / 1 / 5 / 4;
+  display: grid;
+  gap: 1.5rem;
+`
+const Datas = styled.div`
+  grid-area: 3 / 1 / 5 / 4;
+  display: flex;
+  grid-column-gap: 1.5rem;
 `
 
 /**
- * Render the header of dashboard
+ * Dashboard Header Rendering
  * @param {string} firstname
  * @returns {JSX}
  */
@@ -53,27 +65,32 @@ const Heading = ({firstname}) => {
 }
 
 /**
- * Renders the Statistics of a user
+ * User Analytics Rendering
  * @param {object} user
  * @returns {JSX}
  */
- const UserStats = ({keyData, score, activity}) => {
+ const UserStats = ({keyData, score, activity, average}) => {
   return (
     <Analytics>
+      <AnalyticsGraphics>
       <DailyActivity activityData={activity} />
-      <DailyScore score={score} />
+      <Datas>
+        <SessionAverage averageData={average} />
+        <DailyScore score={score} />
+      </Datas>
+      </AnalyticsGraphics>
       <KeyData keyData={keyData} />
     </Analytics>
-  );
-};
+  )
+}
 
 /**
- * Renders the Dashboard of a user with all their stats
+ * Whole container with Analytics rendering
  * @returns {JSX}
  */
 export const Dashboard = () => {
   const {userId} = useParams()
-  const {loading, user, activity} = useUserData(userId)
+  const {loading, user, activity, average} = useUserData(userId)
 
   if (user === undefined) return <Error404 />
   if (loading) return <p>Loading...</p>
@@ -88,6 +105,7 @@ export const Dashboard = () => {
             firstname = {user.userInfos.firstName} />
           <UserStats
             activity = {activity}
+            average = {average}
             keyData = {user.keyData}
             score = {user.todayScore} 
           />

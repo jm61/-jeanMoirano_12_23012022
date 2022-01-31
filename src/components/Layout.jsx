@@ -3,8 +3,8 @@ import {SideBar} from './Navigation/SideBar'
 import styled from 'styled-components'
 
 /**
- * CSS for the component using styled.components
- */
+ * styled-components CSS embedded
+ */ 
 const SIDE_BAR_WIDTH = '7.5rem'
 const Container = styled.main`
   display: ${({isSideActive}) => (isSideActive ? 'grid' : 'block')};
@@ -13,7 +13,7 @@ const Container = styled.main`
 `
 
 /**
- * Rendering of a global layout architecture, present on each page
+ * Layout page rendering
  * @param {string} title
  * @param {description} description
  * @param {boolean} isSideActive

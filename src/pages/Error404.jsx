@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 import {Layout} from '../components/Layout';
 
 /**
- * CSS for the component using styled.components
- */
+ * styled-components CSS embedded
+ */ 
 const Contents = styled.main`
   margin: 0 auto;
   flex-direction: column;
@@ -13,13 +13,13 @@ const Contents = styled.main`
   justify-content: center;
   align-items: center;
   margin-top: 10rem;
-`;
+`
 
 const Logo = styled.img``;
 const Title = styled.h1``;
 
 /**
- * Render Error 404 page
+ * Error 404 page rendering
  * @returns {JSX}
  */
 export const Error404 = () => {
@@ -33,5 +33,5 @@ export const Error404 = () => {
         </Contents>
       </Layout>
     </>
-  );
-};
+  )
+}

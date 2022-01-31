@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 import {Layout} from '../components/Layout';
 
 /**
- * CSS for the component using styled.components
- */
+ * styled-components CSS embedded
+ */ 
 const Contents = styled.main`
   margin: 0 auto;
   flex-direction: column;
@@ -14,7 +14,6 @@ const Contents = styled.main`
   align-items: center;
   margin-top: 10rem;
 `
-
 const Logo = styled.img``;
 const Title = styled.h1`
   color: ${({theme}) => theme.colors.secondary};
@@ -45,7 +44,7 @@ const CardWrapper = styled.div`
 `
 
 /**
- * Renders the "Home page" with a user link to access their dashboard
+ * Home page rendering
  * @returns {JSX}
  */
 export const Home = () => {
@@ -67,5 +66,5 @@ export const Home = () => {
         </Contents>
       </Layout>
     </>
-  );
-};
+  )
+}

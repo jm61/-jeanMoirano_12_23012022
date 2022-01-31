@@ -2,7 +2,7 @@ import {ResponsiveContainer, RadialBarChart, RadialBar} from 'recharts'
 import styled from 'styled-components'
 
 /**
- * CSS for the component using styled.components
+ * styled-components CSS embedded
  */
  const Container = styled.div`
  grid-area: 3 / 3 / 5 / 4;
@@ -54,7 +54,7 @@ const Text = styled.p`
 `
 
 /**
- * Renders the user's score on a RadialBarChart
+ * RadialBarChart User's score rendering
  * @param {number} score
  * @returns {JSX}
  */

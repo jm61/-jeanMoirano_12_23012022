@@ -5,17 +5,17 @@ import glucides from '../../assets/carbs-icon.svg';
 import lipides from '../../assets/fat-icon.svg';
 
 /**
- * CSS for the component using styled.components
+ * styled-components CSS embedded
  */
-const ElementsWrapper = styled.div`
+const Container = styled.div`
   grid-area: 1 / 4 / 5 / 5;
   display: grid;
-  grid-row-gap: 5rem;
-  border: 2px solid green;
+  grid-row-gap: 4rem;
+  border: 2px dashed green;
   margin-left: 1rem;
   }
-`;
-const ElementCard = styled.div`
+`
+const Card = styled.div`
   display: flex;
   background-color: ${({theme}) => theme.colors.lightBackground};
   padding: 1.5rem;
@@ -27,25 +27,25 @@ const ElementCard = styled.div`
 const Image = styled.img`
   height: 4.125rem;
   width: 4.125rem;
-`;
-const ElementText = styled.div`
+`
+const Text = styled.div`
   margin-left: 1.5rem;
-`;
-const ElementValue = styled.p`
+`
+const Value = styled.p`
   color: ${({theme}) => theme.colors.secondary};
   font-size: ${({theme}) => theme.fontSize.sm};
   font-style: normal;
   font-weight: ${({theme}) => theme.fontWeight.extraBold};
   line-height: 0;
-`;
-const ElementCategory = styled.p`
+`
+const Category = styled.p`
   color: ${({theme}) => theme.colors.third};
   font-size: ${({theme}) => theme.fontSize.xs};
   font-weight: ${({theme}) => theme.fontWeight.bold};
-`;
+`
 
 /**
- * Renders the data showing calories, carbs, fats & protiens
+ * Categories by Icons rendering
  * @param {object} keyData
  * @returns {JSX}
  */
@@ -54,21 +54,21 @@ export const KeyData = ({keyData}) => {
   const icon = [calories, proteines, glucides, lipides];
 
   return (
-    <ElementsWrapper>
+    <Container>
       {categories.map((category, index) => {
         return (
-          <ElementCard key={category}>
+          <Card key={category}>
             <Image src={icon[index]} alt="icon" />
-            <ElementText>
-              <ElementValue>
+            <Text>
+              <Value>
                 {Object.values(keyData)[index]}
                 {index === 0 ? 'kCal' : 'g'}
-              </ElementValue>
-              <ElementCategory>{category}</ElementCategory>
-            </ElementText>
-          </ElementCard>
-        );
+              </Value>
+              <Category>{category}</Category>
+            </Text>
+          </Card>
+        )
       })}
-    </ElementsWrapper>
-  );
-};
+    </Container>
+  )
+}

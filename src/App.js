@@ -4,7 +4,7 @@ import {Error404} from './pages/Error404'
 import {Dashboard} from './pages/Dashboard'
 
 /**
- * Manages routes & renders pages
+ * Routes and Pages rendering
  * @returns {JSX}
  */
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <Route path="/" index element={<Home />} />
       <Route path="/user/:userId" element={<Dashboard />} />
     </Routes>
-  );
+  )
 }
 
 export default App

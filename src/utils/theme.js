@@ -1,3 +1,6 @@
+/**
+ * Custom CSS elements assembled ad a theme
+ */
 export const theme = {
   colors: {
     primary: '#FF0000',
@@ -18,4 +21,4 @@ export const theme = {
     bold: '500',
     extraBold: '700',
   },
-};
+}

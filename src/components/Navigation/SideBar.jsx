@@ -7,14 +7,13 @@ import Swim from '../../assets/icon-swim.svg'
 import Gym from '../../assets/icon-dumbell.svg'
 
 /**
- * CSS for the component using styled.components
- */
+ * styled-components CSS embedded
+ */ 
 const SportGroup = styled.div`
   background-color: ${({theme}) => theme.colors.black};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: grid;
 `
-
 const Copyright = styled.p`
   color: ${({theme}) => theme.colors.white};
   display: flex;
@@ -26,7 +25,6 @@ const Copyright = styled.p`
   transform: rotate(180deg);
   writing-mode: vertical-lr;
 `
-
 const Image = styled.img`
   margin-top: 0.938rem;
   width: 3rem;
@@ -34,7 +32,6 @@ const Image = styled.img`
     transform: scaleX(1.1);
 } 
 `
-
 const SportLink = styled.div`
   display: flex;
   flex-direction: row;
@@ -47,7 +44,7 @@ const SportLink = styled.div`
 `
 
 /**
- * Renders the LeftHand Side navigation Bar
+ * Sidebar rendering
  * @returns {JSX}
  */
 export const SideBar = () => {

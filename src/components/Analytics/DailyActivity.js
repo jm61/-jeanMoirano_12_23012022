@@ -6,14 +6,18 @@ import {
     XAxis,
     YAxis,
     Tooltip,
+    CartesianGrid,
     ResponsiveContainer,
   } from 'recharts'
 
+/**
+ * styled-components CSS embedded
+ */ 
   const Container = styled.div`
   grid-area: 1 / 1 / 3 / 4;
   background-color: ${({theme}) => theme.colors.lightBackground};
   border-radius: 5px;
-  padding 0.625rem;
+  padding 0.5rem;
   border: 2px dashed orange;
 `
 const Heading = styled.div`
@@ -64,7 +68,7 @@ const CustomTooltip = ({active, payload}) => {
   return null
 }
 /**
- * Renders Activities BarChart legend
+ * BarChart legend Activities rendering
  * @returns {JSX}
  */
 const ActivityHeading = () => {
@@ -80,7 +84,7 @@ const ActivityHeading = () => {
 }
 
 /**
- * Renders Activities BarChart with Weight & Calories burned
+ * BarChart with Weight & Calories rendering
  * @param {object} activity
  * @returns {JSX}
  */
@@ -113,14 +117,13 @@ const ActivityHeading = () => {
           orientation="left"
           axisLine={false}
           tickLine={false}
-          domain={['dataMin -10', 'dataMax + 10']}
         />
         <Tooltip
           dy={4}
           content={<CustomTooltip />}
           cursor={{fill: 'rgba(196, 196, 196, 0.5)'}}
         />
-        {/* <CartesianGrid stroke="#DEDEDE" strokeDasharray="3" vertical={false} /> */}
+        <CartesianGrid stroke="#DEDEDE" strokeDasharray="3" vertical={false} />
         <Bar
           yAxisId="poids"
           name="kg"
@@ -142,6 +145,11 @@ const ActivityHeading = () => {
   )
 }
 
+/**
+ * Daily activity rendering
+ * @param {object} activityData
+ * @returns {JSX}
+ */
 export const DailyActivity = ({activityData}) => {
   console.log({activityData})
   return (

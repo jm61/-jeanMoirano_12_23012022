@@ -1,7 +1,7 @@
 const baseUrl = 'http://localhost:3000'
 
 /**
- * Service to fetch data
+ * Service to fetch data on local backend API
  * @param {string} path
  * @returns {object} response
  */
