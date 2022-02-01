@@ -13,25 +13,28 @@ export const useUserData = userId => {
     const [error, setError] = useState(false);
     const [activity, setActivity] = useState(null)
     const [average, setAverage] = useState(null)
+    const [performance, setPerformance] = useState(null)
 
     async function getUserData(userId) {
         try {
             const userInfos = await FetchApi(`user/${userId}`)
             const userActivity = await FetchApi(`user/${userId}/activity`)
             const userAverage = await FetchApi(`user/${userId}/average-sessions`)
+            const userPerformance = await FetchApi(`user/${userId}/performance`)
             setUser(userInfos.data)
             setActivity(userActivity.data.sessions)
             setAverage(userAverage.data.sessions)
+            setPerformance(userPerformance.data.data)
         } catch (error) {
             setError(true);
             console.log(error)
         } finally {
-            setLoading(false);
+            setLoading(false)
         }
     }
 
 useEffect(() => {
     getUserData(userId)
   }, [userId])
-  return {loading, user, activity, average};
+  return {loading, user, activity, average, performance};
 }

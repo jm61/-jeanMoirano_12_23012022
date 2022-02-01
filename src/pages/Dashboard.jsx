@@ -7,6 +7,7 @@ import {KeyData} from '../components/Analytics/KeyData'
 import {DailyScore} from '../components/Analytics/DailyScore'
 import {DailyActivity} from '../components/Analytics/DailyActivity'
 import {SessionAverage} from '../components/Analytics/SessionAverage'
+import {RadarChartPerformance} from '../components/Analytics/RadarChart'
 
 /**
  * styled-components CSS embedded
@@ -69,13 +70,14 @@ const Heading = ({firstname}) => {
  * @param {object} user
  * @returns {JSX}
  */
- const UserStats = ({keyData, score, activity, average}) => {
+ const UserStats = ({keyData, score, activity, average, performance}) => {
   return (
     <Analytics>
       <AnalyticsGraphics>
       <DailyActivity activityData={activity} />
       <Datas>
         <SessionAverage averageData={average} />
+        <RadarChartPerformance performanceData={performance} />
         <DailyScore score={score} />
       </Datas>
       </AnalyticsGraphics>
@@ -90,7 +92,7 @@ const Heading = ({firstname}) => {
  */
 export const Dashboard = () => {
   const {userId} = useParams()
-  const {loading, user, activity, average} = useUserData(userId)
+  const {loading, user, activity, average, performance} = useUserData(userId)
 
   if (user === undefined) return <Error404 />
   if (loading) return <p>Loading...</p>
@@ -106,6 +108,7 @@ export const Dashboard = () => {
           <UserStats
             activity = {activity}
             average = {average}
+            performance = {performance}
             keyData = {user.keyData}
             score = {user.todayScore} 
           />
