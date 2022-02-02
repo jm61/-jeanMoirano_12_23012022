@@ -1,6 +1,7 @@
 import {TopBar} from './Navigation/TopBar'
 import {SideBar} from './Navigation/SideBar'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 /**
  * styled-components CSS embedded
@@ -31,6 +32,17 @@ export const Layout = ({children, isSideActive}) => {
           ( <Container>{children}</Container> )}
     </>
   )
+}
+
+// PropTypes
+Layout.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  isSideActive: PropTypes.bool
+}
+
+Layout.defaultProps = {
+  title: 'SportSee'
 }
 
 

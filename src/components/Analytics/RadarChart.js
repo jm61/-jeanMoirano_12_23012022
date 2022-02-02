@@ -7,6 +7,7 @@ import {
     Radar,
   } from 'recharts'
 import {performanceCategory, reverseCategoriesOrder} from '../../utils/DataFormat'
+import PropTypes from 'prop-types'
 
 /**
  * styled-components CSS embedded
@@ -53,5 +54,10 @@ import {performanceCategory, reverseCategoriesOrder} from '../../utils/DataForma
           </RadarChart>
         </ResponsiveContainer>
       </Container>
-    );
-  };
+    )
+  }
+
+// PropTypes
+RadarChartPerformance.propTypes = {
+  performanceData: PropTypes.array
+}

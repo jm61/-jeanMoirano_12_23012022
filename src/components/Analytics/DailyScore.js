@@ -1,5 +1,6 @@
 import {ResponsiveContainer, RadialBarChart, RadialBar} from 'recharts'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 /**
  * styled-components CSS embedded
@@ -91,3 +92,8 @@ const Text = styled.p`
       </Container>
     )
   }
+
+// PropTypes
+DailyScore.propTypes = {
+  score: PropTypes.number
+}

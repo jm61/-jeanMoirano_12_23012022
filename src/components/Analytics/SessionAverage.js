@@ -9,6 +9,7 @@ import {
     ResponsiveContainer,
   } from 'recharts'
 import {sessionAverageDate} from '../../utils/DataFormat'
+import PropTypes from 'prop-types'
 
 /**
  * styled-components CSS embedded
@@ -108,3 +109,8 @@ const CustomTooltip = ({active, payload}) => {
       </Container>
     )
   }
+
+// PropTypes
+SessionAverage.propTypes = {
+  averageData: PropTypes.array
+}

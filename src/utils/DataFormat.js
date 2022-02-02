@@ -36,7 +36,7 @@ export const performanceCategory = cat => {
 }
 
 /**
- * Categories list reversed by sort() method
+ * Performance Categories list reversed by sort() method
  * used in RadarChart component
  * @param {object} performance
  * @returns {object}

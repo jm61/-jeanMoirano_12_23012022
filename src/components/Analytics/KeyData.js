@@ -3,6 +3,7 @@ import calories from '../../assets/calories-icon.svg';
 import proteines from '../../assets/protein-icon.svg';
 import glucides from '../../assets/carbs-icon.svg';
 import lipides from '../../assets/fat-icon.svg';
+import PropTypes from 'prop-types'
 
 /**
  * styled-components CSS embedded
@@ -71,4 +72,9 @@ export const KeyData = ({keyData}) => {
       })}
     </Container>
   )
+}
+
+// PropTypes
+KeyData.propTypes = {
+  keyData: PropTypes.object
 }

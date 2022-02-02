@@ -9,6 +9,7 @@ import {
     CartesianGrid,
     ResponsiveContainer,
   } from 'recharts'
+import PropTypes from 'prop-types'
 
 /**
  * styled-components CSS embedded
@@ -151,11 +152,15 @@ const ActivityHeading = () => {
  * @returns {JSX}
  */
 export const DailyActivity = ({activityData}) => {
-  console.log({activityData})
   return (
     <Container>
       <ActivityHeading />
       <ActivityCharts activity={activityData} />
     </Container>
   )
+}
+
+// PropTypes
+ActivityCharts.propTypes = {
+  activity: PropTypes.array
 }

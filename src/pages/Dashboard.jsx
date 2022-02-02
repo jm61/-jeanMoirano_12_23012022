@@ -8,6 +8,7 @@ import {DailyScore} from '../components/Analytics/DailyScore'
 import {DailyActivity} from '../components/Analytics/DailyActivity'
 import {SessionAverage} from '../components/Analytics/SessionAverage'
 import {RadarChartPerformance} from '../components/Analytics/RadarChart'
+import PropTypes from 'prop-types'
 
 /**
  * styled-components CSS embedded
@@ -116,4 +117,12 @@ export const Dashboard = () => {
       </Layout>
     </>
   )
+}
+
+// PropTypes
+Heading.propTypes = {
+  firstName: PropTypes.string
+}
+UserStats.propTypes = {
+  user: PropTypes.object
 }
