@@ -31,7 +31,7 @@ import PropTypes from 'prop-types'
  export const RadarChartPerformance = ({performanceData}) => {
     return (
       <Container>
-        <ResponsiveContainer width="100%" height={200}>
+        <ResponsiveContainer width="100%" height={240}>
           <RadarChart
             cy="50%"
             cx="50%"

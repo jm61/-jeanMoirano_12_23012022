@@ -40,8 +40,8 @@ export const TopBar = () => {
       </NavLink>
       <NavLink to="/">Accueil</NavLink>
       <NavLink to="#">Profil</NavLink>
-      <NavLink to="#">Infos</NavLink>
-      <NavLink to="#">Contact</NavLink>
+      <NavLink to="#">Réglage</NavLink>
+      <NavLink to="#">Communauté</NavLink>
     </NavGroup>
   )
 }

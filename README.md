@@ -12,11 +12,11 @@ recharts v2.1.8
 
 react-router-dom v6.2.1
 
+props-type v1.0.1
+
 Recommended text editor: Visual Studio Code
 
 **Installation Dev Dependencies**
-
-props-type v1.0.1
 
 You need Node (v17.3.1) to run the npm commands
 
@@ -24,7 +24,9 @@ Install and run the project:
 
 npm i
 
-Run the project (port 3003 by default) npm start
+Run the project (port tcp/3003)
+connection to local API: 'npm run prod'
+connection to mocked datas: 'npm run dev'
 
 **To get the backend API, for this repo and follow the instructions Backend API**
  https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git

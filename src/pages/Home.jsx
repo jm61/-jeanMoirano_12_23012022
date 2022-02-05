@@ -52,9 +52,6 @@ export const Home = () => {
     <>
       <Layout
         description={"Bienvenue sur la page d'accueil de SportSee"}>
-      {/* <Layout
-        title={'Accueil'}
-        description={"Bienvenue sur la page d'accueil de SportSee"}> */}
         <Contents>
           <Logo src={logo} alt="logo sportsee" />
           <Title>Vous allez transpirer avec SportSee !</Title>

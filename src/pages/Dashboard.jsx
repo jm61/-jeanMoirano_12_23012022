@@ -9,7 +9,6 @@ import {DailyActivity} from '../components/Analytics/DailyActivity'
 import {SessionAverage} from '../components/Analytics/SessionAverage'
 import {RadarChartPerformance} from '../components/Analytics/RadarChart'
 import PropTypes from 'prop-types'
-
 /**
  * styled-components CSS embedded
  */ 
@@ -35,7 +34,6 @@ const Analytics = styled.div`
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 1.5rem;
   grid-row-gap: 1.5rem;
-  border: 2px dotted purple;
 `
 const AnalyticsGraphics = styled.div`
   grid-area: 1 / 1 / 5 / 4;
@@ -94,7 +92,6 @@ const Heading = ({firstname}) => {
 export const Dashboard = () => {
   const {userId} = useParams()
   const {loading, user, activity, average, performance} = useUserData(userId)
-
   if (user === undefined) return <Error404 />
   if (loading) return <p>Loading...</p>
   return (

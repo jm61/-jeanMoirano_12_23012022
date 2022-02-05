@@ -11,8 +11,7 @@ import PropTypes from 'prop-types'
 const Container = styled.div`
   grid-area: 1 / 4 / 5 / 5;
   display: grid;
-  grid-row-gap: 4rem;
-  border: 2px dashed green;
+  grid-row-gap: 3rem;
   margin-left: 1rem;
   }
 `

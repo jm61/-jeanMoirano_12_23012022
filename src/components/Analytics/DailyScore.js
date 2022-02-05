@@ -15,7 +15,6 @@ import PropTypes from 'prop-types'
  display: flex;
  justify-content: center;
  align-items: center;
- border: 2px dashed aqua;
 `
 
 const Heading = styled.h2`

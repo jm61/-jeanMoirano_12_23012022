@@ -1,9 +1,10 @@
 import {useState, useEffect} from 'react'
 import {FetchApi} from '../utils/fetchApi'
-
+import {userMock, activityMock, averageMock, performanceMock} from '../mock/mockData'
 /**
  * Hook for backEnd API get fetch
  * @param {string} userId
+ * @param {string} REACT_APP_ENV
  * @returns {object} data
  * @returns {boolean} loading
  */
@@ -16,11 +17,19 @@ export const useUserData = userId => {
     const [performance, setPerformance] = useState(null)
 
     async function getUserData(userId) {
+        let userInfos, userActivity, userAverage, userPerformance
         try {
-            const userInfos = await FetchApi(`user/${userId}`)
-            const userActivity = await FetchApi(`user/${userId}/activity`)
-            const userAverage = await FetchApi(`user/${userId}/average-sessions`)
-            const userPerformance = await FetchApi(`user/${userId}/performance`)
+            if(process.env.REACT_APP_ENV === 'prod') {
+                userInfos = await FetchApi(`user/${userId}`)
+                userActivity = await FetchApi(`user/${userId}/activity`)
+                userAverage = await FetchApi(`user/${userId}/average-sessions`)
+                userPerformance = await FetchApi(`user/${userId}/performance`)
+            } else {
+                userInfos = userMock
+                userActivity = activityMock
+                userAverage = averageMock
+                userPerformance = performanceMock
+            }  
             setUser(userInfos.data)
             setActivity(userActivity.data.sessions)
             setAverage(userAverage.data.sessions)
@@ -32,7 +41,6 @@ export const useUserData = userId => {
             setLoading(false)
         }
     }
-
 useEffect(() => {
     getUserData(userId)
   }, [userId])

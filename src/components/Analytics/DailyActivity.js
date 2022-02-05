@@ -19,7 +19,6 @@ import PropTypes from 'prop-types'
   background-color: ${({theme}) => theme.colors.lightBackground};
   border-radius: 5px;
   padding 0.5rem;
-  border: 2px dashed orange;
 `
 const Heading = styled.div`
   align-items: center;
